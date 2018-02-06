@@ -2,6 +2,7 @@ $(document).ready(function () {
     let clockElement = document.querySelector('.Clock-Calendar');
     let format = true;
     let switchElement = true;
+    let led = $('.led-green');
     let time = {
         h: '',
         m: '',
@@ -77,22 +78,24 @@ $(document).ready(function () {
     });
 
     $('.Clock-Calendar').hover(function () {
-        $('body').css('background-color', '#ea7d63');
-        $('.Clock-Calendar').css('color', '#000000');
+        $('body').css({'background-color': '#ea7d63', 'transition': 'background-color 1s ease-out'});
+        $('.Clock-Calendar').css({'color': '#000000', 'transition': 'color 1s ease-out'});
     });
 
     $('.Clock-Calendar').mouseout(function () {
-        $('body').css('background-color', '#80d4ea');
-        $('.Clock-Calendar').css('color', '#ffffff');
+        $('body').css({'background-color': '#80d4ea', 'transition': 'background-color 1s ease-out'});
+        $('.Clock-Calendar').css({'color': 'darkred', 'transition': 'color 1s ease-out'});
     });
 
     setInterval(run, 1);
 
     function run() {
         if (switchElement === true) {
-            clockElement.innerText = displayTime();
+            clockElement.innerHTML = displayTime();
+            led.css('display', 'block');
         } else {
-            clockElement.innerText = displayCalendar();
+            clockElement.innerHTML = displayCalendar();
+            led.css('display', 'none');
         }
     }
 

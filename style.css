@@ -5,7 +5,9 @@ body {
     background-color: #80d4ea;
 }
 
-.Clock-Calendar {
+.container {
+    display: flex;
+    flex-direction: column;
     height: fit-content;
     width: fit-content;
     margin: auto;
@@ -17,10 +19,54 @@ body {
     font-family: 'Roboto', monospace;
     font-weight: 300;
     text-align: center;
-    color: white;
+    color: darkred;
     font-size: 100px;
 }
 
-.Clock-Calendar:hover {
-    animation: color 1s;
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    background-color: ghostwhite;
+    border: 10px solid dimgrey;
+    border-radius: 10px;
+    padding: 50px 100px 50px 100px;
+    z-index: 2;
+    box-shadow: inset 0px 0px 10px rgba(0,0,0,0.9);
+}
+
+.led-green {
+    margin: 0 auto;
+    width: 24px;
+    height: 24px;
+    background-color: #FF0;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #FF0 0 2px 12px;
+    animation: test 1s infinite;
+}
+
+#table {
+    position: relative;
+    width: 150%;
+    margin-left: -150px;
+    margin-top: -100px;
+    height: 150px;
+    background-color: saddlebrown;
+    transform: perspective(500px) scaleZ(2) rotateX(45deg);
+    z-index: 1;
+}
+
+@keyframes test {
+    from {
+        background-color: #FF0;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #FF0 0 2px 12px;
+    }
+    50% {
+        background-color: #60603f;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #46462a 0 -1px 9px, #60603f 0 2px 12px;
+    }
+    to {
+        background-color: #FF0;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #FF0 0 2px 12px;
+    }
 }
